@@ -14,7 +14,7 @@ pip install -r requirements.txt
 ### Start server
 You can start server with :
 
-`FLASK_APP=run.py FLASK_DEBUG=1 flask run`
+`python run.py`
 
 ### User registration
 The blog pages are protected, before view any page, user needs register, here use curl command for example to test:
