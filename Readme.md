@@ -48,7 +48,7 @@ The access token will expire after 15 minutes, when that happens, refresh the us
 `curl -i -H "Authorization:Bearer <your access token>" -H "Content-Type: application/json" -X PUT -d '{"title":"head","content":"content"}' http://localhost:5000/blogapi/blogs/5`
 
 ### Delete a blog
-`curl -i -H "Authorization:Bearer <your access token>" -X DELETE  http://localhost:5000/blogapi/v1.0/blogs/5`
+`curl -i -H "Authorization:Bearer <your access token>" -X DELETE  http://localhost:5000/blogapi/blogs/5`
 
 ### User logout
 When user logout, the access token will be added to a blacklist. 
