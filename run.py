@@ -69,4 +69,4 @@ api.add_resource(resources.BlogItemAPI, resources.item_route, endpoint='blog')
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
