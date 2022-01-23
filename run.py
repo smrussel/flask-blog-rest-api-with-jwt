@@ -7,7 +7,6 @@ import os
 from dotenv import load_dotenv
 from flask_cors import CORS
 
-
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 load_dotenv(dotenv_path=f"{THIS_FOLDER}/config.env")
 
@@ -15,9 +14,7 @@ app = Flask(__name__)
 api = Api(app)
 CORS(app)
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
-
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///blog.db")
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
@@ -69,7 +66,6 @@ api.add_resource(resources.TokenRefresh, '/token/refresh')
 api.add_resource(resources.AllUsers, '/users')
 api.add_resource(resources.BlogListAPI, resources.list_route, endpoint='blogs')
 api.add_resource(resources.BlogItemAPI, resources.item_route, endpoint='blog')
-
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
